@@ -4,6 +4,11 @@ import { Controller, Get, Post, Put, Delete } from '@nestjs/common';
 export class ItemsController {
     @Get()
     findAll(): string{
-        return 'Get All Items'
+        return 'Get All Items';
+    }
+
+    @Post()
+    create(): string{
+    return 'Create item';        
     }
 }
