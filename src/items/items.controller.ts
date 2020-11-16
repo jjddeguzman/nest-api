@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put, Delete, Body } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Body, Param } from '@nestjs/common';
 import { CreateItemDto } from './dto/create-item.dto'
 
 @Controller('items')
@@ -9,7 +9,12 @@ export class ItemsController {
     }
 
     @Post()
-    create(@Body () itemType: CreateItemDto): string{
-    return `Name: ${itemType.name} Description: ${itemType.description}`;       
+    create(@Body () createDto: CreateItemDto): string{
+    return `Name: ${createDto.name} Description: ${createDto.description}`;       
+    }
+
+    @Delete(':id')
+    delete(@Param('id') id): string{
+        return `Delete ${id}`
     }
 }
